@@ -1,0 +1,108 @@
+.menubarmenu{
+    position: absolute;
+    left: 0;
+    margin-top: 2%;
+    box-shadow:2px 2px 2px 1px rgba(76, 76, 76, 0.2);
+    height: 80%;
+    width: 4.5%;
+    background-color: white;
+    border-radius: 15px;
+}
+.headingmenu{
+    background-color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0 15px 0 0;
+    height: 8%;
+}
+.iconmenu{
+    color: white;
+    margin-left: 60%;
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+    margin-top: 13%;
+}
+.display{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    text-align: center;
+    align-items: center;
+    border-radius: 25px;
+}
+.text{
+    margin-top: 10%;
+}
+#menu{
+    background-color: white;
+    position: fixed;
+    left: 0;
+    transform: translate3d(fit-content, 0, 0);
+    transition: transform .3s cubic-bezier(0, .52, 0, 1);
+}
+.show {
+    width: 15%;
+    transform: translate3d(fit-content, 0, 0);
+    transition: transform 5s ease-in-out;
+    position: fixed;
+    left: 0;
+    border-radius: 15px;
+    z-index: 1;
+}
+.expandedmenu{
+    border-radius: 0 15px 0 0;
+}
+.expandedicon{
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.commondiv{
+    display: flex;
+    /* flex-direction: column; */
+}
+.menuheading{ 
+    color: white; 
+    margin-top: 5%;
+    font-size:14px;
+    font-family:monospace;
+    margin-left:30%;
+    width:150px;
+}
+.liitems{
+    margin-bottom: 10%;
+    margin-left: 25%;
+    width: max-content;
+}
+.innerheading{
+    margin-left: 10%;
+    font-weight: bolder;
+    width: max-content;
+}
+.assetheading{
+        position: relative;
+        left: -12px;
+        font-size: small;
+}
+.innerhr{
+    width: 90%;
+    margin-left: 10%;
+    height: 0.07px;
+}
+.lihr{
+    height: 0.5;
+    margin-left: 9%;
+    width: 125%;
+}
+hr {
+    border: none;
+    height: 0.3px;
+    color: #333; 
+    background-color: #333;
+}
+.lilinks{
+    text-decoration: none;
+    color: black;
+}

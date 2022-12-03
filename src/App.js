@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import Main from "./components/Main";
+import { React, useState,useEffect } from 'react';
+const url = "https://dev.deepthought.education/assets/uploads/files/others/project.json";
 
 function App() {
+  const [Assets,setAssets]=useState([])
+    const fetchAssets = async() => {
+        const response = await fetch(url);
+        const newAssets = await response.json();
+        //console.log(newAssets)
+        setAssets(newAssets['tasks'][0]['assets']);
+    };
+    useEffect(() => {
+        fetchAssets();
+        
+    }, [url])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Menu Assets={Assets}/>
+      <Main Assets={Assets} />
     </div>
   );
 }

@@ -1,0 +1,75 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background-color:rgb(221, 215, 207);
+    padding: 0.5%;
+}
+.heading{
+    margin-left: 5%;
+}
+.logo1{
+    border-radius: 50%;
+    background-color: rgb(2, 130, 250);
+    color: white;
+    padding: 2px;
+    height: fit-content;
+    width: 1%;
+    position: absolute;
+    right: 20%;
+    text-align: center;
+}
+.logo2{
+    border-radius: 50%;
+    background-color: rgb(2, 130, 250);
+    color: white;
+    padding: 2px;
+    height: fit-content;
+    width: 1%;
+    position: absolute;
+    right: 18%;
+    text-align: center;
+}
+.logo3{
+    border-radius: 50%;
+    background-color: rgb(2, 130, 250);
+    color: white;
+    padding: 2px;
+    height: fit-content;
+    width: 1%;
+    position: absolute;
+    right: 16%;
+    text-align: center;
+}
+.logo4{
+    border-radius: 50%;
+    background-color: rgb(2, 130, 250);
+    color: white;
+    padding: 2px;
+    height: fit-content;
+    width: 1%;
+    position: absolute;
+    right: 14%;
+    text-align: center;
+}
+.logo5{
+    border-radius: 50%;
+    background-color:gray;
+    padding: 2px;
+    height: 23px;
+    width: 16px;
+    position: absolute;
+    right: 12%;
+    text-align: center;
+}
+.logo6{
+    border-radius: 50%;
+    color: rgb(2, 130, 250);
+    padding: 2px;
+    position: absolute;
+    right: 10%;
+    text-align: center;
+}
+.minlogo{
+    justify-content: center;
+    align-items: center;
+}
