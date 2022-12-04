@@ -1,0 +1,27 @@
+.subthread1{
+    height: 10%;
+    width: 20%;
+    margin-left: 10%;
+}
+.subthreadheading{
+    background-color: rgb(227, 227, 227);
+    color: black;
+    margin-bottom: 0;
+    width: 159px;
+    border-radius: 10px 10px 0 0;
+    height: 30px;
+    padding-left: 5%;
+}
+.subthreadinput{
+    margin-top: 0;
+    height: 60px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 20px rgba(76, 76, 76, 0.2);
+    box-shadow: 2px 2px 20px rgba(76, 76, 76, 0.2);
+    border: none;
+}
+.subthread2{
+    height: 10%;
+    width: 20%;
+    margin-left: 25%;
+}

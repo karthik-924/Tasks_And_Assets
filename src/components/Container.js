@@ -2,12 +2,17 @@ import "./Container.css";
 import { FaAngleUp } from "react-icons/fa";
 import { FaAngleDown, FaSave } from "react-icons/fa";
 // import { AiFillBulb } from 'react-icons/ai';
-import { SiGooglemessages } from "react-icons/si";
-import { HiPencil } from "react-icons/hi";
-import { AiOutlinePaperClip, AiFillBulb } from "react-icons/ai";
-import { useState } from "react";
+// import { SiGooglemessages } from "react-icons/si";
+import { useState,useEffect } from "react";
+import Thread from "./Thread";
+import Thread2 from "./Thread2";
 const Container = ({ asset }) => {
   const [Active, setActive] = useState(false);
+  const [Athread, setAthread] = useState(1);
+  const [Tactive, setTactive] = useState(true);
+  const [T1active, setT1active] = useState(true);
+  const [Bthread, setBthread] = useState(1);
+  useEffect(()=>{console.log(Athread)},[Athread,Bthread]);
   console.log(asset);
   const Change = () => {
     console.log(Active);
@@ -37,76 +42,10 @@ const Container = ({ asset }) => {
     return (
       <div id={asset.asset_title} className={Active ? "assetcontainer" : "assetcontainerexpand"}>
         <p className="assetcontainerheading">{asset.asset_title}</p>
-        <p className="assetcontentheading">
-          <FaAngleUp size={18} style={{ marginRight: "30px" }} />
-          Thread A
-        </p>
-        <div style={{ display: "flex" }}>
-          <div className="subthread1">
-            <p className="subthreadheading">Sub Thread 1</p>
-            <input
-              className="subthreadinput"
-              size={20}
-              type={"text"}
-              value="Enter text here..."
-            />
-          </div>
-          <div className="subthread2">
-            <p className="subthreadheading">Sub Interpretation 1</p>
-            <input
-              className="subthreadinput"
-              size={20}
-              type={"text"}
-              value="Enter text here..."
-            />
-          </div>
-        </div>
-        <AiFillBulb
-          style={{ marginLeft: "30%", marginTop: "5px", marginRight: "10px" }}
-        />
-        <SiGooglemessages />
-        <select
-          style={{ marginLeft: "5px", height: "30px", borderRadius: "5px" }}
-        >
-          <option value="select1">Select Category</option>
-        </select>
-        <select
-          style={{ marginLeft: "5px", height: "30px", borderRadius: "5px" }}
-        >
-          <option value="select2">Select Process</option>
-        </select>
-        <br />
-        <button className="threadbutton">+ Sub thread</button>
-        <br />
-        <div className="subthread3">
-          <p className="subthreadheading1">Summary for thread A</p>
-          <input
-            className="subthreadinput1"
-            size={20}
-            type={"text"}
-            value="Enter text here..."
-          />
-        </div>
-        <br />
-        <div style={{ display: "flex" }}>
-          <p className="threadcredit">
-            <AiOutlinePaperClip size={10} />
-            Thread Credit
-            <HiPencil size={20} style={{ marginLeft: "5px", color: "blue" }} />
-          </p>
-          <select
-            style={{
-              marginLeft: "150px",
-              height: "30px",
-              borderRadius: "5px",
-              width: "150px",
-              marginTop: "15px",
-            }}
-          >
-            <option value="select2">Select Emotion</option>
-          </select>
-        </div>
-        <button className="threadbutton1">+ New thread</button>
+        {[...Array(Athread)].map((thread, index)=>{
+                return <Thread key={index+1} count={index+1} />;
+            })}
+        <button className="threadbutton1" onClick={()=>setAthread(Athread+1)}>+ New thread</button>
         <br />
         <FaSave size={25} style={{ marginLeft: "80%", marginTop: "10px" }} />
         <hr className="lighthr" />
@@ -131,9 +70,8 @@ const Container = ({ asset }) => {
         <p className="assetcontainerheading">{asset.asset_title}</p>
         <textarea
           className="textarea"
-          value={"Reflect as per given guidelines"}
+          placeholder={"Reflect as per given guidelines"}
         >
-          Reflect as per given guidelines
         </textarea>
         {Active ? (
           <FaAngleDown
@@ -202,27 +140,43 @@ const Container = ({ asset }) => {
   else if (asset.asset_content === "eb")
       return (
         <div id={asset.asset_title} className={Active ? "assetcontainer" : "assetcontainerexpand"}>
-        <p className="assetcontainerheading">{asset.asset_title}</p>
+          <p className="assetcontainerheading">{asset.asset_title}</p>
+          <div className={Tactive?"":"minimized"}>
         <p className="assetcontentheading">
-          <FaAngleUp size={18} style={{ marginRight: "30px" }} />
+        {Tactive ? (
+          <FaAngleDown
+            onClick={()=>setTactive(!Tactive)} size={18} style={{ marginRight: "30px" }}
+          />
+        ) : (
+          <FaAngleUp
+            onClick={()=>setTactive(!Tactive)} size={18} style={{ marginRight: "30px" }}
+          />
+        )}
           Introduction
               </p>
-              <input className="th7i1" type={'text'} value={"Enter introduction"} />
-              <p className="assetcontentheading">
-          <FaAngleUp size={18} style={{ marginRight: "30px" }} />
-          Thread A
-              </p>
-              <p className="th7sh1">Example 1</p>
-              <input className="th7i2" type={'text'} value={"Enter Text Here"} />
-              <br></br><button style={{margin:"30px 10px 10px 120px"}} className="threadbutton">+ Example</button>
-              <p className="th7sh1">Argument for Thread A</p>
-              <input className="th7i2" type={'text'} value={"Enter Text Here"} />
-              <button style={{marginLeft:"61%"}} className="threadbutton1">+ New thread</button>
-              <p className="assetcontentheading">
-          <FaAngleUp size={18} style={{ marginRight: "30px" }} />
+            <input className="th7i1" type={'text'} placeholder={"Enter introduction"} />
+          </div>
+          <div >
+            {[...Array(Bthread)].map((thread, index)=>{
+                return <Thread2 key={index+1} count={index+1} />;
+            })}
+          <button style={{ marginLeft: "61%" }} className="threadbutton1" onClick={() => setBthread(Bthread + 1)}>+ New thread</button>
+          </div>
+          <div className={T1active?"":"minimized"}>
+            <p className="assetcontentheading"> 
+            {T1active ? (
+          <FaAngleDown
+            onClick={()=>setT1active(!T1active)} size={18} style={{ marginRight: "30px" }}
+          />
+        ) : (
+          <FaAngleUp
+            onClick={()=>setT1active(!T1active)} size={18} style={{ marginRight: "30px" }}
+          />
+        )}
           Conclusion
               </p>
-              <input className="th7i1" type={'text'} value={"Enter introduction"} />
+            <input className="th7i1" type={'text'} placeholder={"Enter introduction"} />
+            </div>
               <FaSave size={25} style={{ marginLeft: "75%", marginTop: "20px" }} />
               <hr className="lighthr" />
               {Active ? (
@@ -271,7 +225,8 @@ const Container = ({ asset }) => {
         {Active ? (
           <FaAngleDown
             size={20}
-            className="updownicon"
+              className="updownicon"
+              style={{color:"white"}}
             onClick={() => Change()}
           />
         ) : (
